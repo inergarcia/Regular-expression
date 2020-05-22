@@ -5,7 +5,7 @@
 
 En **Java Script** se pueden crear expresiones regulares utilizando una *notación literal* o *notación de objeto*:
 
-```
+```JavaScript
 //literal notation
 let re = /aa/i
 //object notation
@@ -13,7 +13,7 @@ let re = new RegExp('aa', 'i')
 ```
 También se puede utilizar las dos formas combinadas de esta manera:
 
-```
+```JavaScript
 let re = new RegExp(/aa/, 'i')
 ```
 
@@ -78,12 +78,12 @@ Dentro de una expresión regular se pueden emplear ciertos caracteres que hacen 
 ### Veamos algunos ejemplos
 
 Declararemos la siguiente expresión regular:
-```
+```JavaScript
 let  re = /.i.e/i
 ```
 Ahora comprobaremos empleando el método ```test()``` la coincidencia en los siguientes casos:
 
-```
+```JavaScript
 re.test('life') //true
 re.test('wifi') //false
 re.test('wife') //true
@@ -92,7 +92,7 @@ re.test('DIVE') //true (i permite mayúsculas/minúsculas)
 
 Si se desea que un carácter especial forme parte del patron se procede de la siguiente manera:
 
-```
+```JavaScript
 //Buscando coincidencias con ".com"
 
 /.com/.test('.com') // true (Tener en cuenta que el punto es comodín)
@@ -103,7 +103,7 @@ Si se desea que un carácter especial forme parte del patron se procede de la si
 
 ### Ejemplos con ```[] [^] |```
 
-```
+```JavaScript
 let re = /[ae]/i
 
 re.test('a') //true
@@ -124,7 +124,7 @@ r.test('fot') //false
 
 ### Veamos un ejemplo cuando la búsqueda es en el inicio o en el final de una cadena.
 
-```
+```JavaScript
 let re = /^co/i
 re.test('solution') //false (no empieza con "co")
 re.test('code') //true
@@ -136,7 +136,7 @@ re.test('running') //true
 
 Si queremos buscar textos después de *espacios*, *comas* o *puntos* o simplemente limites de palabras utilizamos ```\b```.
 
-```
+```JavaScript
 let re = /od\b/
 re.test('The good doctor.') //true (después de good hay espacio)
 
@@ -150,7 +150,7 @@ re.test('The end.') //true (luego de end hay un signo de puntuación)
 ```
 
 ### Veamos como aplicar ```* + ? {n} {n,} {n,m}```
-```
+```JavaScript
 let re = /a*/
 
 re.test('') //true el carácter anterior aparece 0 veces
@@ -159,7 +159,7 @@ re.test('aba') //true el carácter anterior aparece 2 veces
 re.test('bcd') //true el carácter anterior aparece 0 veces 
 ```
 
-```
+```JavaScript
 let re = /a+/
 re.test('') //false el carácter anterior aparece 0 veces
 re.test('a') //true el carácter anterior aparece 1 vez
@@ -168,7 +168,7 @@ re.test('bcd') //false el carácter anterior aparece 0 veces
 ```
 
 Cuando se desea indicar que no es relevante que aparezca un carácter opcional se usa ```?```.
-```
+```JavaScript
 let re = /doctors?/i
 
 re.test('The good doctors.') //true
@@ -177,7 +177,7 @@ re.test('The good boy') // false
 ``` 
 
 Si se requiere especificar exactamente el número de repeticiones se utilizan ```{n} {n,} {n, m}```.
-```
+```JavaScript
 //Número formado por tres dígitos o más
 
 let re = /\d{3}/
@@ -188,7 +188,7 @@ re.test(1234) //true
 
 Para especificar un numero exactamente de n dígitos lo único que haría falta seria limitar el patrón:
 
-```
+```JavaScript
 let re = /^\d{3}$/
 re.test(12) //false
 re.test(123) //true
@@ -213,7 +213,7 @@ r.test(12345) // false
 
 El método ```exec(src)``` muy parecido al método ```indexOf(src)``` nos permite encontrar coincidencias dentro de ```src```. Si no se establece el atributo ```g``` la búsqueda sera hasta la primera coincidencia. Al establecer el atributo ```g``` el método retornará distinto de ```null``` mientras existan coincidencias.
 
-```
+```JavaScript
 //Todas las palabras de 5 letras
 let re = /\b([a-z]{5})\b/ig;
 let str = "Lorem ips dolor sit, amet consectetur adipisicing elit."
@@ -243,7 +243,7 @@ while(res !== null){
 
 También se puede utilizar el método ```match``` pasándola la expresión regular como argumento y se obtendrá un resultado similar.
 
-```
+```JavaScript
 let re = /\b([a-z]{5})\b/ig;
 let str = "Lorem ips dolor sit, amet consectetur adipisicing elit."
 
@@ -255,7 +255,7 @@ str.match(re)
 
 Otro método que utiliza expresiones regulares es el método ```replace()```.
 
-```
+```JavaScript
 let str = "The god doctor"
 str.replace(/[aeou]/, 'gi') // Thi gid dictir
 ```
@@ -263,7 +263,7 @@ Existen muchos más métodos que usan expresiones regulares, te invito a descubr
 
 ### Como último ejemplo veremos algo más práctico. Un patrón para analizar url.
 
-```
+```JavaScript
 let parse_url = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/
 
 let url1 = "http://www.ora.com:80/goodparts?q#fragment"
