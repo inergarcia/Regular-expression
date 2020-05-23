@@ -107,19 +107,19 @@ Si se desea que un carácter especial forme parte del patron se procede de la si
 let re = /[ae]/i
 
 re.test('a') //true
-r.test('E') //true por el i
-r.test('Z') //false
+re.test('E') //true por el i
+re.test('Z') //false
 
 re = /[^ae]/i
 re.text('a') //false
-r.text('e') //false
-r.test('Z') //true
+re.text('e') //false
+re.test('Z') //true
 
 re = /dog|foot/
-r.test('dog') //true
-r.test('DOG') //false
-r.test('foot') //true
-r.test('fot') //false
+re.test('dog') //true
+re.test('DOG') //false
+re.test('foot') //true
+re.test('fot') //false
 ```
 
 ### Veamos un ejemplo cuando la búsqueda es en el inicio o en el final de una cadena.
@@ -197,16 +197,16 @@ re.test(1234) //false
 //tres o mas dígitos
 re = /^\d{3,}$/
 
-r.test(12) // false
-r.test(1234) // true
+re.test(12) // false
+re.test(1234) // true
 
 //entre 2 y 4 dígitos
 re = /^[0-9]{2,4}$/
 
-r.test(1) // false
-r.test(123) // true
-r.test(1234) //true
-r.test(12345) // false
+re.test(1) // false
+re.test(123) // true
+re.test(1234) //true
+re.test(12345) // false
 ```
 
   Note que se puede utilizar tanto ```\d``` como ```[1-9]``` para referirse a cualquier dígito de 0 a 9.
